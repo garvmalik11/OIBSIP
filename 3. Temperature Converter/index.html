@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <h1>Temperature Converter</h1>
+  <div class="container">
+    <div class="form-group">
+      <label for="celsius">Celsius:</label>
+      <input type="number" id="celsius" placeholder="Enter temperature in Celsius">
+    </div>
+
+    <div class="form-group">
+      <label for="fahrenheit">Fahrenheit:</label>
+      <input type="number" id="fahrenheit" placeholder="Enter temperature in Fahrenheit">
+    </div>
+    <button class="btn" onclick="convert()">Convert</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convert() {
+      var celsiusInput = document.getElementById("celsius");
+      var fahrenheitInput = document.getElementById("fahrenheit");
+      var resultDiv = document.getElementById("result");
+
+      // Convert Celsius to Fahrenheit
+      if (celsiusInput.value !== "") {
+        var celsius = parseFloat(celsiusInput.value);
+        var fahrenheit = (celsius * 9 / 5) + 32;
+        fahrenheitInput.value = fahrenheit.toFixed(2);
+        resultDiv.innerText = celsius + " degrees Celsius is equal to " + fahrenheit.toFixed(2) + " degrees Fahrenheit.";
+      }
+
+      // Convert Fahrenheit to Celsius
+      if (fahrenheitInput.value !== "") {
+        var fahrenheit = parseFloat(fahrenheitInput.value);
+        var celsius = (fahrenheit - 32) * 5 / 9;
+        celsiusInput.value = celsius.toFixed(2);
+        resultDiv.innerText = fahrenheit + " degrees Fahrenheit is equal to " + celsius.toFixed(2) + " degrees Celsius.";
+      }
+    }
+  </script>
+</body>
+</html>
